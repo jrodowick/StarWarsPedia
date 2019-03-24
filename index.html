@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="style.css">
+    <title>Welcome</title>
+  </head>
+  <body>
+
+
+    <div id="app">
+      <header id="page_header">
+        <h1>Star Wars Encyclopedia</h1>
+        <h3>All kinds of information from your favorite movies!</h3>
+      </header>
+
+      <div v-for="char in response">
+        <p>{{ char.name }}</p>
+      </div>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+  <script src="script.js"></script>
+  </body>
+</html>
