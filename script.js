@@ -12,6 +12,15 @@ var app = new Vue({
         console.log(results.results)
         app.response = results.results
       })
+    },
+    hideMenu: function(event) {
+      let $li = $('li')
+      $li.each(function(index) {
+        $(this).delay(100 * index).animate({
+          opacity: 0.0,
+          paddingLeft: '+=200'
+        })
+      })
     }
   },
   beforeMount() {
