@@ -2,22 +2,22 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="style.css">
     <title>Welcome</title>
   </head>
   <body>
 
 
-    <div id="app">
-      <header id="page_header">
-        <h1>Star Wars Encyclopedia</h1>
-        <h3>All kinds of information from your favorite movies!</h3>
-      </header>
-
-      <div v-for="char in response">
-        <p>{{ char.name }}</p>
-      </div>
-
+    <div id="app" class="bg flex-container">
+      <ul class="list menu-hover-lines">
+        <li><a href="">Films</a></li>
+        <li><a href="">People</a></li>
+        <li><a href="">Planets</a></li>
+        <li><a href="">Vehicles</a></li>
+        <li><a href="">Species</a></li>
+        <li><a href="">Spaceships</a></li>
+      </ul>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
