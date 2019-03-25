@@ -20,7 +20,6 @@ html,body {
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-direction: column;
 }
 
 .menu-hover-lines {
@@ -30,18 +29,8 @@ html,body {
 
 .menu-hover-lines li a {
   padding: 0.75rem 0;
-  /* color: rgba(10, 10, 10, 0.5); */
   color: #F5F5F5;
   position: relative;
-  /* margin-left: 1rem; */
-}
-
-.menu-hover-lines li:first-child a {
-  margin-left: 0;
-}
-
-.menu-hover-lines li.active > a {
-  background-color: transparent;
 }
 
 .menu-hover-lines a:before,
@@ -87,6 +76,8 @@ html,body {
 .list > li, a {
   padding: 20px 0;
   text-decoration: none;
+  font-family: 'Anton', sans-serif;
+
 }
 
 .list > li:hover {
