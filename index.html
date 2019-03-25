@@ -9,16 +9,20 @@
   </head>
   <body>
 
-
-    <div id="app" class="bg flex-container">
-      <ul class="list menu-hover-lines" v-on:click="hideMenu">
-        <li><a href="#">Films</a></li>
-        <li><a href="#">People</a></li>
-        <li><a href="#">Planets</a></li>
-        <li><a href="#">Vehicles</a></li>
-        <li><a href="#">Species</a></li>
-        <li><a href="#">Spaceships</a></li>
-      </ul>
+    <div id="app" class="bg">
+      <header v-if="seen" id="home">
+        <h2><a href="#" v-on:click="hideHome">Home</a></h2>
+      </header>
+      <div class="flex-container">
+        <ul class="list menu-hover-lines" v-on:click="hideMenu">
+          <li><a href="#">Films</a></li>
+          <li><a href="#">People</a></li>
+          <li><a href="#">Planets</a></li>
+          <li><a href="#">Vehicles</a></li>
+          <li><a href="#">Species</a></li>
+          <li><a href="#">Starships</a></li>
+        </ul>
+      </div>
     </div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
