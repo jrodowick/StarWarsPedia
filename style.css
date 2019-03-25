@@ -1,8 +1,94 @@
 html,body {
-  margin:0;
-  padding:0;
+  padding: 0;
+  margin: 0;
+  height: 100%;
 }
 
-#page_header {
-  text-align: center;
+.bg {
+  height: 100%;
+  background: #C655BE; /* Old browsers */
+  background: -moz-linear-gradient(top, #040303 0%, #191919 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#040303), color-stop(100%,#191919)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, #040303 0%,#191919 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, #040303 0%,#191919 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, #040303 0%,#191919 100%); /* IE10+ */
+  background: linear-gradient(top, #040303 0%,#191919 100%); /* W3C */
+}
+
+.flex-container {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.menu-hover-lines {
+  text-transform: uppercase;
+  transition: all 0.35s ease;
+}
+
+.menu-hover-lines li a {
+  padding: 0.75rem 0;
+  /* color: rgba(10, 10, 10, 0.5); */
+  color: #F5F5F5;
+  position: relative;
+  /* margin-left: 1rem; */
+}
+
+.menu-hover-lines li:first-child a {
+  margin-left: 0;
+}
+
+.menu-hover-lines li.active > a {
+  background-color: transparent;
+}
+
+.menu-hover-lines a:before,
+.menu-hover-lines a::after {
+  height: 3px;
+  position: absolute;
+  content: '';
+  transition: all 0.35s ease;
+  background-color: #1779ba;
+  width: 0;
+}
+
+.menu-hover-lines a::before {
+  top: 0;
+  left: 0;
+}
+
+.menu-hover-lines a::after {
+  bottom: 0;
+  right: 0;
+}
+
+.menu-hover-lines a:hover,
+.menu-hover-lines li.active > a {
+  color: #878787;
+  transition: all 0.35s ease;
+}
+
+.menu-hover-lines a:hover::before,
+.menu-hover-lines .active a::before,
+.menu-hover-lines a:hover::after,
+.menu-hover-lines .active a::after {
+  width: 100%;
+}
+
+.list {
+  margin-top: 0;
+  list-style: none;
+  color: #F5F5F5;
+  font-size: 4em;
+}
+
+.list > li, a {
+  padding: 20px 0;
+  text-decoration: none;
+}
+
+.list > li:hover {
+
 }
