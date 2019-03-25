@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Anton" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <title>Welcome</title>
   </head>
@@ -10,18 +11,18 @@
 
 
     <div id="app" class="bg flex-container">
-      <ul class="list menu-hover-lines">
-        <li><a href="">Films</a></li>
-        <li><a href="">People</a></li>
-        <li><a href="">Planets</a></li>
-        <li><a href="">Vehicles</a></li>
-        <li><a href="">Species</a></li>
-        <li><a href="">Spaceships</a></li>
+      <ul class="list menu-hover-lines" v-on:click="hideMenu">
+        <li><a href="#">Films</a></li>
+        <li><a href="#">People</a></li>
+        <li><a href="#">Planets</a></li>
+        <li><a href="#">Vehicles</a></li>
+        <li><a href="#">Species</a></li>
+        <li><a href="#">Spaceships</a></li>
       </ul>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
   <script src="script.js"></script>
   </body>
 </html>
