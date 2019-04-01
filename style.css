@@ -4,11 +4,16 @@ html,body {
   height: 100%;
 }
 
-h2 ,a{
-  margin: 0;
-  color: white;
-  font-family: 'Anton', sans-serif;
+.page-header {
+  margin-top: 0;
+  text-align: center;
+  color: white
+}
 
+h1,h2 {
+  margin: 0;
+  font-family: 'Anton', sans-serif;
+  font-size: 3em;
 }
 
 #app {
@@ -24,10 +29,10 @@ h2 ,a{
   background: -o-linear-gradient(top, #040303 0%,#191919 100%); /* Opera 11.10+ */
   background: -ms-linear-gradient(top, #040303 0%,#191919 100%); /* IE10+ */
   background: linear-gradient(top, #040303 0%,#191919 100%); /* W3C */
+  padding: 0;
 }
 
 .flex-container {
-  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -82,15 +87,23 @@ h2 ,a{
   list-style: none;
   color: #F5F5F5;
   font-size: 4em;
+  padding: 0;
+  text-align: center;
+}
+
+li {
+  display: none;
 }
 
 .list > li, a {
   padding: 20px 0;
   text-decoration: none;
   font-family: 'Anton', sans-serif;
-
 }
 
-.list > li:hover {
-
+.section {
+  display: none;
+  color:#f4f4f4;
+  font-size: 1.5em;
+  padding: 0 100px;
 }
