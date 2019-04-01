@@ -10,19 +10,33 @@
   <body>
 
     <div id="app" class="bg">
-      <header v-if="seen" id="home">
-        <h2><a href="#" v-on:click="hideHome">Home</a></h2>
+      <header class="page-header">
+        <h1>{{ title }}</h1>
       </header>
-      <div class="flex-container">
-        <ul class="list menu-hover-lines" v-on:click="hideMenu">
-          <li><a href="#">Films</a></li>
-          <li><a href="#">People</a></li>
-          <li><a href="#">Planets</a></li>
-          <li><a href="#">Vehicles</a></li>
-          <li><a href="#">Species</a></li>
-          <li><a href="#">Starships</a></li>
-        </ul>
+      <nav>
+        <div class="flex-container" id="menu">
+          <ul class="list menu-hover-lines">
+            <li><a href="#">Films</a></li>
+            <li><a href="#">People</a></li>
+            <li><a href="#">Species</a></li>
+            <li><a href="#">Planets</a></li>
+            <li><a href="#">Vehicles</a></li>
+            <li><a href="#">Starships</a></li>
+          </ul>
+        </div>
+      </nav>
+      <div class="section" id="films">
+        <div v-for="films in response.results">
+          <p>Title: {{ films.title }}</p>
+          <p>Release Date: {{ films.release_date }}</p>
+        </div>
       </div>
+      <div class="section" id="people"></div>
+      <div class="section" id="species"></div>
+      <div class="section" id="planets"></div>
+      <div class="section" id="vehicles"></div>
+      <div class="section" id="starships"></div>
+
     </div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
