@@ -1,9 +1,8 @@
 var app = new Vue({
   el: '#app',
   data: {
-    message: "Star Wars Encyclopedia",
+    title: "Star Wars Encyclopedia",
     response: {},
-    seen: false
   },
   methods: {
     getData: function(choice) {
@@ -15,29 +14,44 @@ var app = new Vue({
       })
     },
     hideMenu: function(event) {
-      let $li = $('li')
+      let $current = event.currentTarget
+      let $li = $('li').not($current).addClass('hidden')
+      let $selected = $('li:not(.hidden)')
       $li.each(function(index) {
         $(this).delay(100 * index).animate({
           opacity: 0.0,
-          paddingLeft: '+=200'
+          paddingLeft: '+=200',
+        }, 1250, function() {
+          $li.css({'display':'none'})
         });
       });
+      $selected.append('<a v-on:click="showMenu" id="home" href="#" style="display:none">Home</a>')
+      $('#home').fadeIn(4000).css({'margin-left':'50px'})
+
       this.getData(event.target.textContent.toLowerCase())
-      this.showHome();
+      document.getElementById(event.target.textContent.toLowerCase()).style.display = "block";
+
     },
-    showHome: function() {
-      app.seen = true;
+    loadMenu: function() {
+      $('li').each(function(index) {
+        $(this).delay(100 * index).fadeIn(2000);
+      });
     },
-    hideHome: function() {
-      app.seen = false;
-      let $li = $('li')
+    showMenu: function() {
+      $li = $('li')
       $li.each(function(index) {
         $(this).delay(100 * index).animate({
           opacity: 1.0,
-          paddingLeft: '-=200'
+          paddingLeft: '-=200',
+        }, 1250, function() {
+          $li.css({'display':'none'})
         });
       });
-
     }
+
+  },
+  mounted() {
+    $('li').on('click', this.hideMenu);
+    this.loadMenu();
   },
 })
