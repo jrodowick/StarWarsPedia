@@ -2,7 +2,8 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Anton" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <title>Welcome</title>
@@ -10,36 +11,80 @@
   <body>
 
     <div id="app" class="bg">
-      <header class="page-header">
-        <h1>{{ title }}</h1>
+      <header>
+        <h1>Star Wars Encyclopedia</h1>
+        <nav class="menu">
+            <ul class="menu-hover-lines navbar">
+              <nav-item v-for="api of this.apis" :name="api" :key="api"></nav-item>
+            </ul>
+        </nav>
       </header>
-      <nav>
-        <div class="flex-container" id="menu">
-          <ul class="list menu-hover-lines">
-            <li><a href="#">Films</a></li>
-            <li><a href="#">People</a></li>
-            <li><a href="#">Species</a></li>
-            <li><a href="#">Planets</a></li>
-            <li><a href="#">Vehicles</a></li>
-            <li><a href="#">Starships</a></li>
-          </ul>
+      <div data-spy="scroll" data-target=".menu">
+
+        <!-- <div class="container" id="films">
+          <h1>Films</h1>
+          <hr>
+          <div v-for="film in films.results">
+            <h3>Title: {{ film.title }}, Released on {{ film.release_date }}</h3>
+            <p>Directed by {{ film.director }}</p>
+            <p>Produced by {{ film.producer }}</p>
+          </div>
+        </div> -->
+
+        <div class="container" id="films">
+          <h1>Films</h1><hr>
+          <film v-for="film in films.results"
+                :key="film.title"
+                :movie="film">
+          </film>
         </div>
-      </nav>
-      <div class="section" id="films">
-        <div v-for="films in response.results">
-          <p>Title: {{ films.title }}</p>
-          <p>Release Date: {{ films.release_date }}</p>
+
+
+        <div class="container" id="people">
+          <h1>People</h1>
+          <hr>
+          <div v-for="people in people.results">
+            <p>{{ people.name }}</p>
+          </div>
+        </div>
+
+        <div class="container" id="species">
+          <h1>Species</h1>
+          <hr>
+          <div v-for="species in species.results" >
+            <p>{{ species.name}}</p>
+          </div>
+        </div>
+
+        <div class="container" id="planets">
+          <h1>Planets</h1>
+          <hr>
+          <div v-for="planet in planets.results">
+            <p>{{ planet.name }}</p>
+          </div>
+        </div>
+        <div class="container" id="vehicles">
+          <h1>Vehicles</h1>
+          <hr>
+          <div v-for="vehicle in vehicles.results">
+            <p>{{ vehicle.name }}</p>
+          </div>
+        </div>
+        <div class="container" id="starships">
+          <h1>Starships</h1>
+          <hr>
+          <div v-for="starship in starships.results">
+            <p>{{ starship.name }}</p>
+          </div>
         </div>
       </div>
-      <div class="section" id="people"></div>
-      <div class="section" id="species"></div>
-      <div class="section" id="planets"></div>
-      <div class="section" id="vehicles"></div>
-      <div class="section" id="starships"></div>
+
 
     </div>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
   <script src="script.js"></script>
   </body>
