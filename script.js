@@ -1,57 +1,59 @@
+Vue.component('nav-item', {
+  data: function() {
+    return {
+      hash: '#'
+    }
+  },
+  props: ['name'],
+  template: '<li><a class="nav-link" :href="hash + name">{{name}}</a></li>'
+})
+
+Vue.component('film', {
+  data: function() {
+    return {
+
+    }
+  },
+  props:['movie'],
+  template: `
+            <div class="film">
+              <div>
+                <h3>Title: {{ movie.title }}, Released on {{ movie.release_date }}</h3>
+                <p>Directed by {{ movie.director }}</p>
+                <p>Produced by {{ movie.producer }}</p>
+              </div>
+            </div>
+            `
+})
+
 var app = new Vue({
   el: '#app',
   data: {
-    title: "Star Wars Encyclopedia",
-    response: {},
+    films: [],
+    people: [],
+    species: [],
+    planets: [],
+    vehicles: [],
+    starships: [],
+    apis: ['films','people','species','planets','vehicles','starships'],
   },
   methods: {
-    getData: function(choice) {
-      fetch('https://swapi.co/api/' + choice)
-      .then(data => data.json())
-      .then(results => {
+    getData: function() {
+      Promise.all(this.apis.map(api => {
+        return fetch('https://swapi.co/api/' + api).then(resp => resp.json())
+      })).then(results => {
         console.log(results)
-        app.response = results
+        this.films = results[0],
+        this.people = results[1],
+        this.species = results[2],
+        this.planets = results[3],
+        this.vehicles = results[4],
+        this.starships = results[5]
       })
-    },
-    hideMenu: function(event) {
-      let $current = event.currentTarget
-      let $li = $('li').not($current).addClass('hidden')
-      let $selected = $('li:not(.hidden)')
-      $li.each(function(index) {
-        $(this).delay(100 * index).animate({
-          opacity: 0.0,
-          paddingLeft: '+=200',
-        }, 1250, function() {
-          $li.css({'display':'none'})
-        });
-      });
-      $selected.append('<a v-on:click="showMenu" id="home" href="#" style="display:none">Home</a>')
-      $('#home').fadeIn(4000).css({'margin-left':'50px'})
-
-      this.getData(event.target.textContent.toLowerCase())
-      document.getElementById(event.target.textContent.toLowerCase()).style.display = "block";
-
-    },
-    loadMenu: function() {
-      $('li').each(function(index) {
-        $(this).delay(100 * index).fadeIn(2000);
-      });
-    },
-    showMenu: function() {
-      $li = $('li')
-      $li.each(function(index) {
-        $(this).delay(100 * index).animate({
-          opacity: 1.0,
-          paddingLeft: '-=200',
-        }, 1250, function() {
-          $li.css({'display':'none'})
-        });
-      });
     }
 
   },
-  mounted() {
-    $('li').on('click', this.hideMenu);
-    this.loadMenu();
+  beforeMount() {
+    this.getData();
   },
 })
