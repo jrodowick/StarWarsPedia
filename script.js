@@ -18,9 +18,10 @@ Vue.component('film', {
   template: `
             <div class="film">
               <div>
-                <h3>Title: {{ movie.title }}, Released on {{ movie.release_date }}</h3>
+                <h3>Title: {{ movie.title }}</h3>
                 <p>Directed by {{ movie.director }}</p>
                 <p>Produced by {{ movie.producer }}</p>
+                <p>Released on {{ movie.release_date }}</p>
               </div>
             </div>
             `
