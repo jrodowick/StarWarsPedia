@@ -51,8 +51,29 @@ var app = new Vue({
         this.vehicles = results[4],
         this.starships = results[5]
       })
-    }
+    },
+    hideHome: function() {
+      $('#home').css({'display':'none'})
+    },
+    showHome: function() {
+      $('#home,#search').css({'display':'block'})
+    },
+    scrollTo: function(event) {
+      event.preventDefault();
+      $('html, body').animate({
+        scrollTop: $(event.target.hash).offset().top
+      }, 1000);
+      if(!$('#home').is(':visible'))
+      {
+        this.showHome();
+      }
+      else {
+        {
+          this.hideHome();
+        }
+      }
 
+    }
   },
   beforeMount() {
     this.getData();

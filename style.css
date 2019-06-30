@@ -21,6 +21,16 @@ header > h1 {
   color: #F5F5F5;
 }
 
+.hidden {
+  display: none;
+}
+
+#home {
+  position: fixed;
+  left: 0;
+  top: 0;
+}
+
 .navbar {
   display: flex;
   flex-direction: row;
@@ -86,6 +96,12 @@ header > h1 {
 }
 
 /* SECTION */
+
+.search {
+  width: 90%;
+  display: flex;
+  align-items: center;
+}
 
 hr {
  background-color: white;
